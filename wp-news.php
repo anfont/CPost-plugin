@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: wp custompost
-Plugin URI: http://www.lacomunidadon.com/
-Description: Tooltip Testimonial in WordPress
+Plugin URI: http://www.bcn-cluster.com/
+Description: Custom Post in WordPress
 Version: 0.1
 Author: A. Fontana
 */
@@ -120,8 +120,8 @@ add_action( 'save_post', 'save_meta_box' );
 
 // force the tenplate
 add_filter( 'template_include', 'include_reviews_template', 1 );
-function include_reviews_template(){
-    if ( get_post_type() == 'news' ) {
+function include_reviews_template($template_path){
+    if ( get_post_type() == 'new' ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin
