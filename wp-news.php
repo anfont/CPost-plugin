@@ -117,3 +117,21 @@ update_post_meta( $post_id, $key, $data );
  
 add_action( 'admin_menu', 'create_meta_box' );
 add_action( 'save_post', 'save_meta_box' );
+
+// force the tenplate
+add_filter( 'template_include', 'include_reviews_template', 1 );
+function include_reviews_template(){
+    if ( get_post_type() == 'news' ) {
+        if ( is_single() ) {
+            // checks if the file exists in the theme first,
+            // otherwise serve the file from the plugin
+            if ( $theme_file = locate_template( array( 'single-movie-reviews.php' ) ) ) {
+                    $template_path = $theme_file;
+                } else {
+                    $template_path = plugin_dir_path( __FILE__ ) . '/news-loop.php';
+            }
+        }
+    }
+    return $template_path;
+}
+
