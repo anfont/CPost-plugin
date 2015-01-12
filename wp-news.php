@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: fiware-news
+Plugin Name: wp custompost
 Plugin URI: http://www.lacomunidadon.com/
 Description: Tooltip Testimonial in WordPress
 Version: 0.1
